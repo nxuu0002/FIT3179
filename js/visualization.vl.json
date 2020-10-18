@@ -1,39 +1,43 @@
 {
- "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
- "title": "COVID-19 Cumulative Case Count by State In Australia",
- "width": 800,
- "height": 600,
- "projection": {"type": "equirectangular"},
- "data": {
- "url": "https://github.com/nxuu0002/FIT3179/blob/main/js/AU_state.json",
- "format": {"type": "topojson", "feature": "AU_state"}
- },
- "transform": [
- {
- "lookup": "STE_NAME16",
- "from": {
- "data": {
- "url": "https://github.com/nxuu0002/FIT3179/blob/main/data/case_count_by_state.csv"
- },
- "key": "State",
- "fields": ["Cumulative case count"]
- }
- }
- ],
- "mark": {"type": "geoshape"},
- "encoding": {
- "color": {
- "field": "Cumulative case count",
- "type": "quantitative",
- "scale": {
- "type": "threshold",
- "domain": [10000, 100000, 500000],
- "range": ["#fdbe85", "#fd8d3c", "#e6550d", "#a63603"]
- }
- },
- "tooltip": [
- {"field": "properties.NAME", "type": "nominal", "title": "State"},
- {"field": "Active", "type": "quantitative"}
- ]
- }
+  "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+  "title": "COVID-19 case count by state in AU",
+  "width": 800,
+  "height": 600,
+  "data": {
+    "url": "https://github.com/nxuu0002/FIT3179/blob/main/js/AU_state.json",
+    "format": {
+          "type": "json",
+          "feature": "AU_state"
+        }
+  },
+  "transform": [{
+      "lookup": "properties.STE_NAME16",
+      "from": {
+        "data": {
+          "url": "https://github.com/nxuu0002/FIT3179/blob/main/data/case_count_by_state.csv"
+        },
+        "key": "State",
+        "fields": ["Cumulative case count"]
+      }
+    },
+    {"calculate": "datum.Cumulative case count + 0.1", "as": "Active Cases"}
+  ],
+  "projection": {
+    "type": "equirectangular"
+  },
+  "mark": {
+    "type": "geoshape"
+    },
+  "encoding": {
+    "color": {
+      "field": "Active Cases",
+      "type": "quantitative",
+      "scale": {"type": "log"}
+    },
+    "tooltip": [
+      {"field": "properties.STE_NAME16", "type": "nominal", "title": "State"},
+      {"field": "Cumulative case count", "type": "quantitative"}
+    ]
+  }
+
 }

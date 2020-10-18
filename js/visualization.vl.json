@@ -6,7 +6,7 @@
   "data": {
     "url": "https://github.com/nxuu0002/FIT3179/blob/main/js/AU_state.json",
     "format": {
-          "type": "topojson",
+          "type": "json",
           "feature": "STE_2016_AUST"
         }
   },

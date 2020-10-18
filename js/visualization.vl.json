@@ -19,7 +19,8 @@
         "key": "State",
         "fields": ["Cumulative case count"]
       }
-    }
+    },
+    {"calculate": "datum.Cumulative case count + 0.1", "as": "Active Cases"}
     
   ],
   "projection": {

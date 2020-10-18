@@ -1,12 +1,12 @@
 {
  "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
- "title": "COVID-19 Cumulative Case Count by State",
+ "title": "COVID-19 Cumulative Case Count by State In Australia",
  "width": 800,
  "height": 600,
  "projection": {"type": "equirectangular"},
  "data": {
- "url": "https://github.com/nxuu0002/FIT3179/blob/main/Australia_state.json",
- "format": {"type": "topojson", "feature": "Australia_state"}
+ "url": "https://github.com/nxuu0002/FIT3179/blob/main/js/AU_state.json",
+ "format": {"type": "topojson", "feature": "AU_state"}
  },
  "transform": [
  {

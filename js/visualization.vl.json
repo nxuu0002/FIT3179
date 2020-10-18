@@ -10,7 +10,7 @@
  },
  "transform": [
  {
- "lookup": "properties.NAME",
+ "lookup": "STE_NAME16",
  "from": {
  "data": {
  "url": "https://github.com/nxuu0002/FIT3179/blob/main/data/case_count_by_state.csv"

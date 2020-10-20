@@ -17,10 +17,10 @@
           "url": "https://raw.githubusercontent.com/nxuu0002/FIT3179/main/data/case_count_by_state.csv"
         },
         "key": "State",
-        "fields": ["Cumulative case count"]
+        "fields": ["Cumulative_case_count"]
       }
     },
-    {"calculate": "datum.Cumulative case count + 0.1", "as": "Active Cases"}
+    {"calculate": "datum.Cumulative_case_count + 0.1", "as": "Active Cases"}
     
   ],
   "projection": {
@@ -37,7 +37,7 @@
     },
     "tooltip": [
       {"field": "properties.STE_NAME16", "type": "nominal", "title": "State"},
-      {"field": "Cumulative case count", "type": "quantitative"}
+      {"field": "Cumulative_case_count", "type": "quantitative"}
     ]
 
   }

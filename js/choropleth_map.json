@@ -19,19 +19,13 @@
         "key": "State",
         "fields": ["Cumulative_case_count"]
       }
-    },
-    {"calculate": "datum.Cumulative_case_count + 0.1", "as": "Active Cases"}
-    
+    }   
   ],
-  "projection": {
-    "type": "equirectangular"
-  },
-  "mark": {
-    "type": "geoshape"
-    },
+  "projection": {"type": "equirectangular"},
+  "mark": {"type": "geoshape"},
   "encoding": {
     "color": {
-      "field": "Active Cases",
+      "field": "Cumulative_case_count",
       "type": "quantitative",
       "scale": {"type": "log"}
     },
@@ -39,7 +33,5 @@
       {"field": "properties.STE_NAME16", "type": "nominal", "title": "State"},
       {"field": "Cumulative_case_count", "type": "quantitative"}
     ]
-
   }
-
 }
